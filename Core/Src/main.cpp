@@ -147,10 +147,10 @@ int main(void)
     // 每轮应用参数结构体，调试器调整 tuning 后会更新到控制器。
     speed_pid.Tuning(speed_pid_tuning);
 
-    // TODO：将PID的reference设置为参考曲线（curve）的值
-    // TODO：将PID的feedback设置为电机的速度反馈
-    // TODO： 调用 PID 对象自己的 UpdateResult()，计算结果
-    // TODO： 将 PID 的结果写入电机的 currentSet，再由 Handler 统一打包发送。
+    //将PID的reference设置为参考曲线（curve）的值
+    //将PID的feedback设置为电机的速度反馈
+    //调用 PID 对象自己的 UpdateResult()，计算结果
+    //将 PID 的结果写入电机的 currentSet，再由 Handler 统一打包发送。
     speed_pid.ref = curve.Value(HAL_GetTick() - start_ms);
     speed_pid.fdb = motor.motorFeedback.speedFdb;
     speed_pid.UpdateResult();
